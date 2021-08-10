@@ -30,8 +30,12 @@ sio.on('sum_result', sumResultResponse => {
   console.log(sumResultResponse);
 });
 
-sio.on('numbers', numbersResponse => {
+sio.on('numbers', (numbersResponse: { numbers?: number[] }, callback) => {
   console.log(numbersResponse);
+  const [n1, n2] = numbersResponse.numbers ?? [];
+
+  // Return some response to server
+  callback(n1 * n2);
 });
 
 function App() {
