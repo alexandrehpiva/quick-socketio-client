@@ -30,6 +30,10 @@ sio.on('sum_result', sumResultResponse => {
   console.log(sumResultResponse);
 });
 
+sio.on('numbers', numbersResponse => {
+  console.log(numbersResponse);
+});
+
 function App() {
   return <div className="App"></div>;
 }
